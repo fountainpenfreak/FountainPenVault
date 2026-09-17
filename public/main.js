@@ -544,7 +544,6 @@ function ensureMeta(m) {
 
 async function connect() {
   vaultPass = $("vaultPass").value.trim();
-  if (!vaultPass) return alert("Bitte Vault Passwort eingeben.");
   setStatus("Verbinde…");
 
   const v = await apiGetVault();

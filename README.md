@@ -80,3 +80,32 @@ Released under the [MIT License](LICENSE).
 ## Community
 
 Issues, fixes and improvements are welcome. If you contribute code, please make sure examples, screenshots and test data contain no real passwords, tokens, private vault exports or personal image URLs.
+
+## Languages
+
+FountainPenVault includes English and German UI languages. English is the default for new installations. Use the **EN / DE** switch in the application header to change the language; the choice is stored locally in the browser.
+
+## Demo mode (no database required)
+
+You can explore and test FountainPenVault locally without creating an Upstash Redis database.
+
+Create `.env.local` in the project root with:
+
+```env
+DEMO_MODE=true
+```
+
+Then start the app:
+
+```bash
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000/app/` and click **Connect**. No vault password is required in demo mode.
+
+Demo mode uses bundled, fictional sample data. Changes made through the UI are kept only in the running local Node.js process. Restarting the development server restores the original demo data. Redis is not contacted and no production vault data is used.
+
+Image uploads are disabled in demo mode so the demo cannot accidentally write files to Vercel Blob.
+
+For a real installation, leave `DEMO_MODE=false` (or omit it) and configure the Redis, Blob and `VAULT_PASS` variables described above.
