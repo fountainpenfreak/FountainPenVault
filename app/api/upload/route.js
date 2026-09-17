@@ -9,6 +9,9 @@ function assertAuth(req) {
 
 export async function POST(req) {
   try {
+    if (process.env.DEMO_MODE === "true") {
+      return new Response("Image uploads are disabled in demo mode", { status: 503 });
+    }
     assertAuth(req);
 
     const form = await req.formData();

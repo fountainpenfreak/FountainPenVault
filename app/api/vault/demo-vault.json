@@ -1,0 +1,631 @@
+{
+  "version": 1,
+  "exportedAt": "2026-09-17T17:00:00.000Z",
+  "pens": [
+    {
+      "id": "pen-1",
+      "brand": "Aurora",
+      "model": "Demo 88",
+      "limitedEdition": false,
+      "leNumber": "",
+      "material": "Resin",
+      "price": 495,
+      "currency": "EUR",
+      "boughtAt": "2024-03-15",
+      "boughtFrom": "Demo Pen Shop",
+      "attachments": [],
+      "notes": "Demo pen for testing detail views and timelines.",
+      "originalNibId": "nib-1",
+      "currentNibId": "nib-1",
+      "nibHistory": [
+        {
+          "id": "event-101",
+          "date": "2024-03-15",
+          "nibId": "nib-1",
+          "notes": "Original nib installed"
+        }
+      ],
+      "originalFeedId": "feed-1",
+      "currentFeedId": "feed-1",
+      "currentFeedMaterial": "Ebonite",
+      "feedHistory": [
+        {
+          "id": "event-102",
+          "date": "2024-03-15",
+          "feedId": "feed-1",
+          "feedMaterial": "Ebonite",
+          "notes": "Original feed"
+        }
+      ],
+      "currentInkId": "ink-1",
+      "inkHistory": [
+        {
+          "id": "event-103",
+          "type": "ink_filled",
+          "date": "2026-09-10",
+          "inkId": "ink-1",
+          "notes": "Daily writing"
+        }
+      ]
+    },
+    {
+      "id": "pen-2",
+      "brand": "Pilot",
+      "model": "Custom Demo 823",
+      "limitedEdition": false,
+      "leNumber": "",
+      "material": "Resin",
+      "price": 330,
+      "currency": "EUR",
+      "boughtAt": "2025-06-20",
+      "boughtFrom": "Example Stationery",
+      "attachments": [],
+      "notes": "Vacuum filler demo entry.",
+      "originalNibId": "nib-2",
+      "currentNibId": "nib-2",
+      "nibHistory": [
+        {
+          "id": "event-104",
+          "date": "2025-06-20",
+          "nibId": "nib-2",
+          "notes": "Original nib"
+        }
+      ],
+      "originalFeedId": "feed-2",
+      "currentFeedId": "feed-2",
+      "currentFeedMaterial": "Plastic",
+      "feedHistory": [
+        {
+          "id": "event-105",
+          "date": "2025-06-20",
+          "feedId": "feed-2",
+          "feedMaterial": "Plastic",
+          "notes": ""
+        }
+      ],
+      "currentInkId": "ink-2",
+      "inkHistory": [
+        {
+          "id": "event-106",
+          "type": "ink_filled",
+          "date": "2026-09-14",
+          "inkId": "ink-2",
+          "notes": "Testing ink history"
+        }
+      ]
+    },
+    {
+      "id": "pen-3",
+      "brand": "Sailor",
+      "model": "Pro Gear Demo",
+      "limitedEdition": true,
+      "leNumber": "42/100",
+      "material": "PMMA",
+      "price": 420,
+      "currency": "EUR",
+      "boughtAt": "2026-01-12",
+      "boughtFrom": "Fictional Pens",
+      "attachments": [],
+      "notes": "Limited edition demo.",
+      "originalNibId": "nib-3",
+      "currentNibId": "nib-4",
+      "nibHistory": [
+        {
+          "id": "event-107",
+          "date": "2026-01-12",
+          "nibId": "nib-3",
+          "notes": "Original nib"
+        },
+        {
+          "id": "event-108",
+          "date": "2026-08-01",
+          "nibId": "nib-4",
+          "notes": "Swapped for testing"
+        }
+      ],
+      "originalFeedId": "feed-3",
+      "currentFeedId": "feed-3",
+      "currentFeedMaterial": "Plastic",
+      "feedHistory": [
+        {
+          "id": "event-109",
+          "date": "2026-01-12",
+          "feedId": "feed-3",
+          "feedMaterial": "Plastic",
+          "notes": ""
+        }
+      ],
+      "currentInkId": "ink-3",
+      "inkHistory": [
+        {
+          "id": "event-110",
+          "type": "ink_filled",
+          "date": "2026-09-01",
+          "inkId": "ink-3",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": "pen-4",
+      "brand": "Pelikan",
+      "model": "M800 Demo",
+      "limitedEdition": false,
+      "leNumber": "",
+      "material": "Resin",
+      "price": 525,
+      "currency": "EUR",
+      "boughtAt": "2023-11-03",
+      "boughtFrom": "Sample Retailer",
+      "attachments": [],
+      "notes": "Older purchase for finance charts.",
+      "originalNibId": "nib-5",
+      "currentNibId": "nib-5",
+      "nibHistory": [
+        {
+          "id": "event-111",
+          "date": "2023-11-03",
+          "nibId": "nib-5",
+          "notes": ""
+        }
+      ],
+      "originalFeedId": "feed-4",
+      "currentFeedId": "feed-4",
+      "currentFeedMaterial": "Plastic",
+      "feedHistory": [
+        {
+          "id": "event-112",
+          "date": "2023-11-03",
+          "feedId": "feed-4",
+          "feedMaterial": "Plastic",
+          "notes": ""
+        }
+      ],
+      "currentInkId": "ink-4",
+      "inkHistory": [
+        {
+          "id": "event-113",
+          "type": "ink_filled",
+          "date": "2026-08-25",
+          "inkId": "ink-4",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": "pen-5",
+      "brand": "Lamy",
+      "model": "2000 Demo",
+      "limitedEdition": false,
+      "leNumber": "",
+      "material": "Makrolon",
+      "price": 210,
+      "currency": "EUR",
+      "boughtAt": "2022-05-08",
+      "boughtFrom": "Demo Store",
+      "attachments": [],
+      "notes": "Entry without current ink to test empty states.",
+      "originalNibId": "nib-6",
+      "currentNibId": "nib-6",
+      "nibHistory": [
+        {
+          "id": "event-114",
+          "date": "2022-05-08",
+          "nibId": "nib-6",
+          "notes": ""
+        }
+      ],
+      "originalFeedId": "feed-5",
+      "currentFeedId": "feed-5",
+      "currentFeedMaterial": "Plastic",
+      "feedHistory": [
+        {
+          "id": "event-115",
+          "date": "2022-05-08",
+          "feedId": "feed-5",
+          "feedMaterial": "Plastic",
+          "notes": ""
+        }
+      ],
+      "currentInkId": "",
+      "inkHistory": []
+    },
+    {
+      "id": "pen-6",
+      "brand": "Platinum",
+      "model": "#3776 Demo",
+      "limitedEdition": false,
+      "leNumber": "",
+      "material": "Resin",
+      "price": 185,
+      "currency": "USD",
+      "boughtAt": "2026-07-04",
+      "boughtFrom": "Example US Shop",
+      "attachments": [],
+      "notes": "USD purchase for currency conversion testing.",
+      "originalNibId": "nib-7",
+      "currentNibId": "nib-7",
+      "nibHistory": [
+        {
+          "id": "event-116",
+          "date": "2026-07-04",
+          "nibId": "nib-7",
+          "notes": ""
+        }
+      ],
+      "originalFeedId": "feed-6",
+      "currentFeedId": "feed-6",
+      "currentFeedMaterial": "Plastic",
+      "feedHistory": [
+        {
+          "id": "event-117",
+          "date": "2026-07-04",
+          "feedId": "feed-6",
+          "feedMaterial": "Plastic",
+          "notes": ""
+        }
+      ],
+      "currentInkId": "ink-5",
+      "inkHistory": [
+        {
+          "id": "event-118",
+          "type": "ink_filled",
+          "date": "2026-09-16",
+          "inkId": "ink-5",
+          "notes": "Fresh fill"
+        }
+      ]
+    }
+  ],
+  "inks": [
+    {
+      "id": "ink-1",
+      "brand": "Diamine",
+      "name": "Midnight Demo Blue",
+      "color": "Blue",
+      "colorHex": "#173f7a",
+      "sheen": false,
+      "shimmer": false,
+      "specialEdition": false,
+      "inStock": true,
+      "firstPurchasedAt": "2024-03-01",
+      "lastPurchasedAt": "2026-02-10",
+      "boughtFrom": "Demo Ink Shop",
+      "amountMl": 80,
+      "price": 12.5,
+      "currency": "EUR",
+      "notes": "Standard blue test ink."
+    },
+    {
+      "id": "ink-2",
+      "brand": "Pilot Iroshizuku",
+      "name": "Demo Kon-peki",
+      "color": "Bright blue",
+      "colorHex": "#168ac5",
+      "sheen": false,
+      "shimmer": false,
+      "specialEdition": false,
+      "inStock": true,
+      "firstPurchasedAt": "2025-06-01",
+      "lastPurchasedAt": "2025-06-01",
+      "boughtFrom": "Example Stationery",
+      "amountMl": 50,
+      "price": 24,
+      "currency": "EUR",
+      "notes": ""
+    },
+    {
+      "id": "ink-3",
+      "brand": "Wearingeul",
+      "name": "Demo Violet Galaxy",
+      "color": "Violet",
+      "colorHex": "#633b82",
+      "sheen": true,
+      "shimmer": true,
+      "specialEdition": true,
+      "inStock": true,
+      "firstPurchasedAt": "2026-01-05",
+      "lastPurchasedAt": "2026-08-15",
+      "boughtFrom": "Fictional Inks",
+      "amountMl": 30,
+      "price": 26,
+      "currency": "EUR",
+      "notes": "Tests sheen, shimmer and special-edition flags."
+    },
+    {
+      "id": "ink-4",
+      "brand": "Pelikan",
+      "name": "Demo Edelstein Green",
+      "color": "Green",
+      "colorHex": "#176b4d",
+      "sheen": false,
+      "shimmer": false,
+      "specialEdition": false,
+      "inStock": false,
+      "firstPurchasedAt": "2023-10-10",
+      "lastPurchasedAt": "2023-10-10",
+      "boughtFrom": "Sample Retailer",
+      "amountMl": 50,
+      "price": 18.9,
+      "currency": "EUR",
+      "notes": "Out-of-stock demo."
+    },
+    {
+      "id": "ink-5",
+      "brand": "Sailor",
+      "name": "Demo Manyo Orange",
+      "color": "Orange",
+      "colorHex": "#c96b2c",
+      "sheen": true,
+      "shimmer": false,
+      "specialEdition": false,
+      "inStock": true,
+      "firstPurchasedAt": "2026-07-01",
+      "lastPurchasedAt": "2026-09-01",
+      "boughtFrom": "Demo Store",
+      "amountMl": 50,
+      "price": 22,
+      "currency": "USD",
+      "notes": "USD-priced ink."
+    },
+    {
+      "id": "ink-6",
+      "brand": "Rohrer & Klingner",
+      "name": "Demo Sepia",
+      "color": "Brown",
+      "colorHex": "#76513b",
+      "sheen": false,
+      "shimmer": false,
+      "specialEdition": false,
+      "inStock": true,
+      "firstPurchasedAt": "2022-04-20",
+      "lastPurchasedAt": "2024-12-02",
+      "boughtFrom": "Example Shop",
+      "amountMl": 50,
+      "price": 8.5,
+      "currency": "EUR",
+      "notes": ""
+    }
+  ],
+  "nibs": [
+    {
+      "id": "nib-1",
+      "label": "Aurora Demo F",
+      "material": "Gold",
+      "size": "F",
+      "type": "Standard",
+      "maker": "Aurora",
+      "price": 0,
+      "currency": "EUR",
+      "boughtAt": "2024-03-15",
+      "boughtFrom": "Included with pen",
+      "notes": "Original nib",
+      "attachments": []
+    },
+    {
+      "id": "nib-2",
+      "label": "Pilot Demo M",
+      "material": "Gold",
+      "size": "M",
+      "type": "Standard",
+      "maker": "Pilot",
+      "price": 0,
+      "currency": "EUR",
+      "boughtAt": "2025-06-20",
+      "boughtFrom": "Included with pen",
+      "notes": "",
+      "attachments": []
+    },
+    {
+      "id": "nib-3",
+      "label": "Sailor Demo MF",
+      "material": "21k Gold",
+      "size": "MF",
+      "type": "Standard",
+      "maker": "Sailor",
+      "price": 0,
+      "currency": "EUR",
+      "boughtAt": "2026-01-12",
+      "boughtFrom": "Included with pen",
+      "notes": "Original",
+      "attachments": []
+    },
+    {
+      "id": "nib-4",
+      "label": "Demo Architect Nib",
+      "material": "Steel",
+      "size": "M",
+      "type": "Architect",
+      "maker": "Independent Nibmeister",
+      "price": 75,
+      "currency": "EUR",
+      "boughtAt": "2026-07-20",
+      "boughtFrom": "Demo Nib Studio",
+      "notes": "Replacement nib for history testing.",
+      "attachments": []
+    },
+    {
+      "id": "nib-5",
+      "label": "Pelikan Demo M",
+      "material": "Gold",
+      "size": "M",
+      "type": "Standard",
+      "maker": "Pelikan",
+      "price": 0,
+      "currency": "EUR",
+      "boughtAt": "2023-11-03",
+      "boughtFrom": "Included with pen",
+      "notes": "",
+      "attachments": []
+    },
+    {
+      "id": "nib-6",
+      "label": "Lamy Demo EF",
+      "material": "Gold",
+      "size": "EF",
+      "type": "Hooded",
+      "maker": "Lamy",
+      "price": 0,
+      "currency": "EUR",
+      "boughtAt": "2022-05-08",
+      "boughtFrom": "Included with pen",
+      "notes": "",
+      "attachments": []
+    },
+    {
+      "id": "nib-7",
+      "label": "Platinum Demo F",
+      "material": "Gold",
+      "size": "F",
+      "type": "Standard",
+      "maker": "Platinum",
+      "price": 0,
+      "currency": "USD",
+      "boughtAt": "2026-07-04",
+      "boughtFrom": "Included with pen",
+      "notes": "",
+      "attachments": []
+    }
+  ],
+  "feeds": [
+    {
+      "id": "feed-1",
+      "label": "Aurora Demo Ebonite Feed",
+      "maker": "Aurora",
+      "material": "Ebonite",
+      "model": "Demo feed #1",
+      "price": 35,
+      "currency": "EUR",
+      "boughtAt": "2024-03-15",
+      "boughtFrom": "Demo Pen Shop",
+      "notes": "Tests ebonite feed display.",
+      "attachments": []
+    },
+    {
+      "id": "feed-2",
+      "label": "Pilot Demo Feed",
+      "maker": "Pilot",
+      "material": "Plastic",
+      "model": "823-style demo feed",
+      "price": 0,
+      "currency": "EUR",
+      "boughtAt": "2025-06-20",
+      "boughtFrom": "Included with pen",
+      "notes": "",
+      "attachments": []
+    },
+    {
+      "id": "feed-3",
+      "label": "Sailor Demo Feed",
+      "maker": "Sailor",
+      "material": "Plastic",
+      "model": "Pro Gear demo feed",
+      "price": 0,
+      "currency": "EUR",
+      "boughtAt": "2026-01-12",
+      "boughtFrom": "Included with pen",
+      "notes": "",
+      "attachments": []
+    },
+    {
+      "id": "feed-4",
+      "label": "Pelikan Demo Feed",
+      "maker": "Pelikan",
+      "material": "Plastic",
+      "model": "M800 demo feed",
+      "price": 0,
+      "currency": "EUR",
+      "boughtAt": "2023-11-03",
+      "boughtFrom": "Included with pen",
+      "notes": "",
+      "attachments": []
+    },
+    {
+      "id": "feed-5",
+      "label": "Lamy Demo Feed",
+      "maker": "Lamy",
+      "material": "Plastic",
+      "model": "2000 demo feed",
+      "price": 0,
+      "currency": "EUR",
+      "boughtAt": "2022-05-08",
+      "boughtFrom": "Included with pen",
+      "notes": "",
+      "attachments": []
+    },
+    {
+      "id": "feed-6",
+      "label": "Platinum Demo Feed",
+      "maker": "Platinum",
+      "material": "Plastic",
+      "model": "3776 demo feed",
+      "price": 0,
+      "currency": "USD",
+      "boughtAt": "2026-07-04",
+      "boughtFrom": "Included with pen",
+      "notes": "",
+      "attachments": []
+    }
+  ],
+  "events": [
+    {
+      "id": "event-1",
+      "type": "edc_day",
+      "date": "2026-09-17",
+      "penIds": [
+        "pen-1",
+        "pen-2",
+        "pen-6"
+      ],
+      "notes": "Office writing day – demo EDC entry.",
+      "createdAt": "2026-09-17T08:00:00.000Z",
+      "updatedAt": "2026-09-17T08:00:00.000Z"
+    },
+    {
+      "id": "event-2",
+      "type": "edc_day",
+      "date": "2026-09-16",
+      "penIds": [
+        "pen-3",
+        "pen-4"
+      ],
+      "notes": "Two-pen demo carry.",
+      "createdAt": "2026-09-16T08:00:00.000Z",
+      "updatedAt": "2026-09-16T08:00:00.000Z"
+    },
+    {
+      "id": "event-3",
+      "type": "edc_day",
+      "date": "2026-09-15",
+      "penIds": [
+        "pen-1"
+      ],
+      "notes": "Single-pen day.",
+      "createdAt": "2026-09-15T08:00:00.000Z",
+      "updatedAt": "2026-09-15T08:00:00.000Z"
+    },
+    {
+      "id": "event-4",
+      "type": "edc_day",
+      "date": "2026-09-12",
+      "penIds": [
+        "pen-2",
+        "pen-3",
+        "pen-5"
+      ],
+      "notes": "Weekend demo entry.",
+      "createdAt": "2026-09-12T08:00:00.000Z",
+      "updatedAt": "2026-09-12T08:00:00.000Z"
+    }
+  ],
+  "meta": {
+    "counters": {
+      "pen": 7,
+      "ink": 7,
+      "nib": 8,
+      "feed": 7,
+      "event": 200,
+      "image": 1
+    }
+  }
+}
