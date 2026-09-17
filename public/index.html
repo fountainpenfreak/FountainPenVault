@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FountainPenVault</title>
+  <style>
+    :root{
+      --bg0:#06060b;
+      --bg1:#0b0b16;
+      --panel:#0f1020;
+      --panel2:#12132a;
+      --border:rgba(255,255,255,.12);
+      --border2:rgba(255,255,255,.18);
+      --text:#e9e9ff;
+      --muted:rgba(233,233,255,.65);
+
+      --violet:#7c3aed;
+      --violet2:#9f67ff;
+
+      --green:#22c55e;
+      --green2:#4ade80;
+
+      --red:#ef4444;
+      --blue:#60a5fa;
+
+      --shadow: 0 12px 28px rgba(0,0,0,.55);
+      --shadow2: 0 10px 24px rgba(0,0,0,.45);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1100px 700px at 25% 15%, rgba(124,58,237,.20), transparent 55%),
+        radial-gradient(900px 600px at 75% 35%, rgba(34,197,94,.14), transparent 55%),
+        radial-gradient(700px 500px at 60% 85%, rgba(96,165,250,.10), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+    }
+
+    /* FULL WIDTH FIX */
+    .app{
+      width: 100%;
+      max-width: none;       /* <- war 1240px */
+      margin: 0 auto;
+      padding: 18px;
+    }
+
+    .topbar{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+    .brand .title{
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+    .brand .sub{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .toolbar{
+      display:flex;
+      gap:10px;
+      align-items:flex-end;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    input, textarea{
+      width:100%;
+      color:var(--text);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 12px;
+      outline:none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+    }
+    input:focus, textarea:focus{
+      border-color: rgba(159,103,255,.55);
+      box-shadow:
+        0 0 0 3px rgba(124,58,237,.18),
+        inset 0 1px 0 rgba(255,255,255,.10);
+    }
+    textarea{ min-height: 90px; resize: vertical; }
+
+    /* CHECKBOX SIZE FIX (prevents giant checkbox) */
+    input[type="checkbox"]{
+      width: auto !important;
+      height: 16px;
+      padding: 0;
+      margin: 0;
+      accent-color: var(--violet2);
+      box-shadow: none;
+    }
+
+    .row{ display:flex; gap:10px; }
+    .muted{ color:var(--muted); }
+    .label{
+      font-size:12px;
+      color:var(--muted);
+      margin: 0 0 6px 2px;
+      font-weight:700;
+    }
+
+    .btn{
+      border:1px solid var(--border2);
+      color:var(--text);
+      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.05));
+      border-radius: 14px;
+      padding: 10px 14px;
+      font-weight: 900;
+      letter-spacing:.2px;
+      cursor:pointer;
+      user-select:none;
+      box-shadow:
+        0 10px 22px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.12);
+      transition: transform .06s ease, filter .12s ease, border-color .12s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{ filter: brightness(1.08); border-color: rgba(255,255,255,.26); }
+    .btn:active{ transform: translateY(1px); filter: brightness(0.98); }
+    .btn:disabled{
+      opacity:.45;
+      cursor:not-allowed;
+      transform:none;
+      filter:none;
+    }
+
+    .btn.primary{
+      border-color: rgba(159,103,255,.42);
+      background: linear-gradient(180deg, rgba(159,103,255,.35), rgba(124,58,237,.20));
+      box-shadow:
+        0 12px 26px rgba(0,0,0,.55),
+        0 0 0 1px rgba(124,58,237,.18) inset,
+        inset 0 1px 0 rgba(255,255,255,.14);
+    }
+    .btn.success{
+      border-color: rgba(74,222,128,.42);
+      background: linear-gradient(180deg, rgba(74,222,128,.30), rgba(34,197,94,.18));
+      box-shadow:
+        0 12px 26px rgba(0,0,0,.55),
+        0 0 0 1px rgba(34,197,94,.18) inset,
+        inset 0 1px 0 rgba(255,255,255,.14);
+    }
+    .btn.danger{
+      border-color: rgba(239,68,68,.42);
+      background: linear-gradient(180deg, rgba(239,68,68,.26), rgba(239,68,68,.12));
+    }
+    .btn.info{
+      border-color: rgba(96,165,250,.42);
+      background: linear-gradient(180deg, rgba(96,165,250,.26), rgba(96,165,250,.12));
+    }
+    .btn.ghost{
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+    }
+
+    .layout{
+      display:grid;
+      grid-template-columns: 220px 320px 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 1100px){
+      .layout{ grid-template-columns: 220px 1fr; }
+      .rightCol{ grid-column: 1 / -1; }
+    }
+    @media (max-width: 760px){
+      .layout{ grid-template-columns: 1fr; }
+    }
+
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      min-width: 0;
+    }
+
+    .panelHeader{
+      padding: 12px 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border-bottom: 1px solid var(--border);
+      min-width: 0;
+    }
+
+    /* Button bar wraps so Export/Import remain visible */
+    .panelHeader.actions{
+      justify-content:flex-start;
+      flex-wrap: wrap;
+      gap:8px;
+    }
+
+    .nav{
+      padding: 10px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .navItem{
+      width:100%;
+      text-align:left;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      color:var(--text);
+      border-radius: 14px;
+      padding: 12px 12px;
+      font-weight:900;
+      cursor:pointer;
+      box-shadow:
+        0 10px 22px rgba(0,0,0,.40),
+        inset 0 1px 0 rgba(255,255,255,.10);
+      transition: filter .12s ease, transform .06s ease, border-color .12s ease;
+    }
+    .navItem:hover{ filter: brightness(1.08); border-color: rgba(255,255,255,.22); }
+    .navItem:active{ transform: translateY(1px); }
+    .navItem.active{
+      border-color: rgba(159,103,255,.45);
+      background: linear-gradient(180deg, rgba(159,103,255,.26), rgba(124,58,237,.14));
+      box-shadow:
+        0 12px 26px rgba(0,0,0,.55),
+        0 0 0 1px rgba(124,58,237,.16) inset,
+        inset 0 1px 0 rgba(255,255,255,.12);
+    }
+
+    .list{
+      padding: 10px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      max-height: calc(100vh - 210px);
+      overflow:auto;
+    }
+    .list-item{
+      border:1px solid var(--border);
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      padding: 10px 12px;
+      cursor:pointer;
+      box-shadow:
+        0 10px 22px rgba(0,0,0,.38),
+        inset 0 1px 0 rgba(255,255,255,.10);
+      transition: filter .12s ease, transform .06s ease, border-color .12s ease;
+    }
+    .list-item:hover{ filter: brightness(1.06); border-color: rgba(255,255,255,.22); }
+    .list-item:active{ transform: translateY(1px); }
+    .list-item.active{
+      border-color: rgba(159,103,255,.45);
+      background: linear-gradient(180deg, rgba(159,103,255,.22), rgba(124,58,237,.12));
+    }
+
+    .card{
+      margin: 10px;
+      padding: 14px 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow2);
+    }
+    .hr{
+      height:1px;
+      background: rgba(255,255,255,.10);
+      margin: 12px 0;
+    }
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width: 760px){
+      .grid2{ grid-template-columns: 1fr; }
+    }
+
+    /* Custom dropdown (dark menu) */
+    .dd{
+      position:relative;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      width:100%;
+      border:1px solid var(--border);
+      border-radius: 14px;
+      padding: 8px 10px;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.10);
+      min-width: 0;
+    }
+    .dd-btn{
+      flex:1;
+      border:none;
+      background: transparent;
+      color: var(--text);
+      font-weight:800;
+      cursor:pointer;
+      padding: 2px 2px;
+      text-align:left;
+      min-width: 0;
+    }
+    .dd-value.dd-placeholder{ color: rgba(233,233,255,.55); font-weight:700; }
+    .dd-clear{
+      border:none;
+      background: transparent;
+      color: rgba(233,233,255,.75);
+      font-weight:900;
+      font-size: 18px;
+      cursor:pointer;
+      padding: 0 6px;
+      opacity:.9;
+    }
+    .dd-caret{
+      width:0;height:0;
+      border-left:6px solid transparent;
+      border-right:6px solid transparent;
+      border-top:7px solid rgba(233,233,255,.60);
+      margin-right:2px;
+      opacity:.9;
+    }
+    .dd-menu{
+      position:absolute;
+      z-index: 9999;
+      left:0; right:0;
+      top: calc(100% + 8px);
+      border: 1px solid rgba(159,103,255,.30);
+      border-radius: 16px;
+      overflow:hidden;
+      background: linear-gradient(180deg, rgba(18,19,42,.98), rgba(10,10,20,.98));
+      box-shadow: 0 22px 44px rgba(0,0,0,.70);
+      backdrop-filter: blur(10px);
+    }
+    .dd-searchWrap{
+      padding: 10px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+    }
+    .dd-search{
+      width:100%;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.12);
+      padding: 10px 12px;
+      outline:none;
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+    }
+    .dd-items{
+      max-height: 270px;
+      overflow:auto;
+      padding: 6px;
+    }
+    .dd-item{
+      padding: 10px 10px;
+      border-radius: 12px;
+      cursor:pointer;
+      border:1px solid transparent;
+      background: transparent;
+    }
+    .dd-item:hover{
+      background: rgba(159,103,255,.14);
+      border-color: rgba(159,103,255,.18);
+    }
+    .dd-item.active{
+      background: rgba(34,197,94,.14);
+      border-color: rgba(74,222,128,.20);
+    }
+    .dd-item.kbd{
+      outline: 2px solid rgba(96,165,250,.35);
+    }
+    .dd-empty{
+      padding: 12px;
+      color: rgba(233,233,255,.65);
+    }
+
+    /* Thumbnails */
+    .thumbGrid{
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .thumb{
+      border:1px solid rgba(255,255,255,.14);
+      border-radius: 14px;
+      overflow:hidden;
+      background: rgba(255,255,255,.03);
+      box-shadow: 0 10px 22px rgba(0,0,0,.45);
+    }
+    .thumb img{
+      width:100%;
+      height: 92px;
+      object-fit: cover;
+      display:block;
+      cursor:pointer;
+      filter: saturate(1.06) contrast(1.02);
+    }
+    .thumbBar{
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      padding: 8px;
+      align-items:center;
+    }
+    .pill{
+      font-size:11px;
+      font-weight:900;
+      color: rgba(233,233,255,.75);
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width: 100%;
+    }
+  
+    /* ==== Table Mode (Tabelle nutzt die gesamte rechte Seite) ==== */
+    body.tableMode .layout{ grid-template-columns: 220px 1fr !important; }
+    body.tableMode .midCol{ display:none !important; }
+    body.tableMode .rightCol{ grid-column: 2 / 3 !important; }
+
+    /* ==== Ink visuals (color swatch + sheen/shimmer) ==== */
+    .inkBadges{ display:inline-flex; align-items:center; gap:6px; justify-content:flex-end; }
+    .ink-swatch{
+      display:inline-block;
+      width:12px;
+      height:12px;
+      border-radius: 3px;
+      background: var(--c, #777777);
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.10);
+      vertical-align: middle;
+    }
+    .miniPill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      font-size: 12px;
+      line-height: 1;
+      user-select:none;
+    }
+
+    /* ==== Tables ==== */
+    .tableWrap{ overflow:auto; }
+    table.fpvTable{
+      width:100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 13px;
+    }
+    table.fpvTable th, table.fpvTable td{
+      padding: 10px 10px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    table.fpvTable thead th{
+      position: sticky;
+      top: 0;
+      background: linear-gradient(180deg, rgba(18,19,42,.98), rgba(10,10,20,.98));
+      z-index: 2;
+    }
+    table.fpvTable tbody tr:hover{
+      background: rgba(159,103,255,.10);
+    }
+    .thSort{ opacity:.9; margin-left:6px; font-size: 11px; color: rgba(233,233,255,.65); }
+
+</style>
+</head>
+
+<body>
+  <div class="app">
+    <div class="topbar">
+      <div class="brand">
+        <div class="title">FountainPenVault</div>
+        <div class="sub">Cloud Vault • Vercel + Redis + Blob</div>
+      </div>
+
+      <div class="toolbar">
+        <div style="min-width:260px;">
+          <div class="label">Vault Passwort</div>
+          <input id="vaultPass" type="password" placeholder="VAULT_PASS" />
+        </div>
+        <button class="btn primary" id="btnConnect">Connect</button>
+        <div class="muted" id="status" style="min-width:150px;text-align:right;">Nicht verbunden</div>
+      </div>
+    </div>
+
+    <div class="layout">
+      <!-- Nav -->
+      <div class="panel navCol">
+        <div class="panelHeader">
+          <div style="font-weight:900;">Navigation</div>
+        </div>
+        <div class="nav">
+          <button class="navItem active" data-entity="dashboard">Dashboard 📊📈</button>
+          <button class="navItem" data-entity="edc">Füllertagebuch✒️📅</button>
+          <button class="navItem" data-entity="pens">Füller 🖊️</button>
+          <button class="navItem" data-entity="inks">Tinten 💧</button>
+          <button class="navItem" data-entity="pens_table">Füller 📅</button>
+          <button class="navItem" data-entity="inks_table">Tinten 📅</button>
+          <button class="navItem" data-entity="nibs">Federn ✒️</button>
+          <button class="navItem" data-entity="feeds">Feeds 🧩</button>
+          <button class="navItem" data-entity="finance">Finanzen 📊</button>
+          <button class="navItem" id="btnExport">Export ⬆️</button>
+          <button class="navItem" id="btnImport">Import ⬇️</button>
+          <input id="fileImport" type="file" accept="application/json" style="display:none;" />
+        </div>
+      </div>
+
+      <!-- List -->
+      <div class="panel midCol">
+        <div class="panelHeader">
+          <div style="font-weight:900;">Übersicht</div>
+          <div style="width: 55%; min-width: 180px;">
+            <input id="search" placeholder="Suchen…" />
+          </div>
+        </div>
+        <div class="panelHeader actions">
+          <button class="btn success" id="btnNew">Neu</button>
+          <button class="btn primary" id="btnSave">Speichern</button>
+          <button class="btn danger" id="btnDelete">Löschen</button>
+</div>
+        <div class="list" id="list"></div>
+      </div>
+
+      <!-- Main View -->
+      <div class="panel rightCol">
+        <div class="panelHeader">
+          <div style="font-weight:900;">Details</div>
+        </div>
+        <div id="view"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/main.js"></script>
+<script src="/ui-dashboard.js"></script>
+<script src="/ui-edc.js"></script>
+  <script src="./ui-finance.js"></script>
+</body>
+</html>
